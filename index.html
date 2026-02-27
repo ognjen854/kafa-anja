@@ -1,3 +1,119 @@
-<h1>Zdravo Anja, da li si za kafu?</h1>
-<h1>Petak u 19h ☕✨</h1>
-<p>Specijalna kafa + iznenađenje 😉</p>
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kafa sa Anjom ☕</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #ff4d6d;
+}
+
+button {
+    margin: 10px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.yes {
+    background-color: #28a745;
+    color: white;
+}
+
+.yes:hover {
+    transform: scale(1.1);
+}
+
+.no {
+    background-color: #dc3545;
+    color: white;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    animation: floatUp 2s linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Zdravo Anja, da li si za kafu? ☕</h1>
+    <h2>Petak u 19h ✨</h2>
+    <p>Specijalna kafa + iznenađenje 😉</p>
+
+    <button class="yes" onclick="sayYes()">YES 💚</button>
+    <button class="no" onmouseover="moveButton(this)">NO ❌</button>
+</div>
+
+<script>
+function sayYes() {
+    alert("Znao sam 😎 Vidimo se u petak u 19h! ☕✨");
+
+    for(let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = Math.random() * window.innerHeight + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 2000);
+    }
+}
+
+function moveButton(button) {
+    button.style.position = "absolute";
+    button.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    button.style.top = Math.random() * (window.innerHeight - 50) + "px";
+}
+</script>
+
+</body>
+</html>
